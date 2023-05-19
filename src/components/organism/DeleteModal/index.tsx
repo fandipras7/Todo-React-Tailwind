@@ -13,6 +13,14 @@ interface DeleteProps {
 }
 
 const DeleteModal: React.FC<DeleteProps> = (props) => {
+    const handleCancel = () => {
+        props.toggleModal();
+      };
+    
+    const handleDelete = () => {
+        props.deleteItem();
+      };
+
     return <div>
         <Modal
             onClick={props.toggleModal}
@@ -26,8 +34,8 @@ const DeleteModal: React.FC<DeleteProps> = (props) => {
                                 <span className="font-bold">{`"${props.itemName}"`}</span>
                             </div>
                             <div className="mt-11 flex justify-center gap-5">
-                                <Button componentName="modal-delete-cancel-button" onClick={props.toggleModal} className="w-150 h-54 rounded-45 bg-gray-100 text-18 font-bold">Batal</Button>
-                                <Button componentName="modal-delete-cancel-button" onClick={props.deleteItem} className="w-150 h-54 rounded-45 bg-red-500 text-18 text-white font-bold">Hapus</Button>
+                                <Button componentName="modal-delete-cancel-button" onClick={handleCancel} className="w-150 h-54 rounded-45 bg-gray-100 text-18 font-bold">Batal</Button>
+                                <Button componentName="modal-delete-cancel-button" onClick={handleDelete} className="w-150 h-54 rounded-45 bg-red-500 text-18 text-white font-bold">Hapus</Button>
                             </div>
                         </div>
             }}
